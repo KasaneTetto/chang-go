@@ -36,6 +36,6 @@ for i in range(total_lines):
     
     print(f"Sending request for IP: {ip_value} with Note: {note_text}")
     
-    response = requests.post(url, headers=headers, json=body)  # `json=body` 사용
+    response = requests.post(url, headers=headers, data=body) 
     print(f"Status Code: {response.status_code}")
     print(response.text)
