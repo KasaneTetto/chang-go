@@ -6,17 +6,13 @@ headers = {
 
 with open("a.txt", "r", encoding="utf-8") as f:
     ip_lines = [line.strip() for line in f if line.strip()]
-        
-with open("b.txt", "r", encoding="utf-8") as f:
-    note_lines = [line.strip() for line in f if line.strip()]
-        
-total_lines = min(len(ip_lines), len(note_lines))
 
-for i in range(total_lines):
+startline = 0
+total_lines = max(len(ip_lines), startline)
+
+for i in range(startline, total_lines):
     ip_value = ip_lines[i]
-    note_line = note_lines[i]
-    
-    note_text = note_line.split("-", 1)[1].strip() if "-" in note_line else note_line
+    note_text = '우회 수단(IPinfo 문제로 관련 정보 수집 불가) | 로그인 후 활동하시길 바랍니다.'
 
     url = "https://haneul.wiki/aclgroup"
 
@@ -34,3 +30,4 @@ for i in range(total_lines):
     response = requests.post(url, headers=headers, data=body) 
     print(f"Status Code: {response.status_code}")
     print(response.text)
+print('작업이 완료되었습니다.')
